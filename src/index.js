@@ -1,6 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import HomePage from "./pages/homePage";
+import MovieDetailsPage from './pages/movieDetailsPage';
+
 
 const sample = {
   adult: false,
@@ -82,13 +84,18 @@ const sample = {
   vote_average: 7,
   vote_count: 9692,
 };
-
+const images = [
+    "/kOVEVeg59E0wsnXmF9nrh6OmWII.jpg",
+    "/v1QQKq8M0fWxMgSdGOX1aCv8qMB.jpg",
+    "/2iGN0aKHJYD0xQydlfuCUAcgNbO.jpg",
+    "/rjBwhsOzHKUw2NIOrE7aMqjfe6s.jpg",
+  ]
 const movies = [sample, sample, sample, sample, sample, sample, sample];
 
 const App = () => {
-  return (
-      <HomePage movies={movies} />
-  );
-};
+    return (
+        <MovieDetailsPage movie={sample} images={images} />
+        );
+  };
 
 ReactDOM.render(<App />, document.getElementById("root"));
