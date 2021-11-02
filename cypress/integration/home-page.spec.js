@@ -84,6 +84,24 @@ describe("Home Page ", () => {
                  cy.wrap($card).find("p").contains(matchingMovies[index].title);
                });
              });
-           });
+             describe("By movie title", () => {
+                it("should only display movies with the specified title", () => {
+                  let searchString = "boss";
+                  const selectedGenreText = "Comedy";
+
+                  let matchingMovies = filterByTitle(movies, searchString);
+                  cy.get("#genre-select").click();
+               cy.get("li").contains(selectedGenreText).click();
+                  cy.get("#filled-search").clear().type(searchString); 
+                  cy.get(".MuiCardHeader-content").should(
+                    "have.length",
+                    matchingMovies.length
+                  );
+                  cy.get(".MuiCardHeader-content").each(($card, index) => {
+                    cy.wrap($card).find("p").contains(matchingMovies[index].title);
+                  });
+                });
+            });
          });
        });
+    });
