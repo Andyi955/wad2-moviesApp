@@ -84,8 +84,8 @@ describe("Home Page ", () => {
                  cy.wrap($card).find("p").contains(matchingMovies[index].title);
                });
              });
-             describe("By movie title", () => {
-                it("should only display movies with the specified title", () => {
+             describe("By movie title and genre", () => {
+                it("should only display movies with the specified title in a genre", () => {
                   let searchString = "boss";
                   const selectedGenreText = "Comedy";
 
@@ -102,6 +102,15 @@ describe("Home Page ", () => {
                   });
                 });
             });
+            describe("By favourites",() => {
+              it("should favourite and show favourites", () =>{
+                cy.get("button[aria-label = 'add to favorites']").eq(0).click();
+                cy.get(".MuiAvatar-root").eq(0)
+                
+              })
+
+
+            })
          });
        });
     });
