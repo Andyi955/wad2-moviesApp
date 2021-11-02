@@ -72,7 +72,10 @@ describe("Navigation", () => {
   });
   describe("The forward/backward links", () => {
     beforeEach(() => {
+      cy.get("button[aria-label='add to favorites']").eq(0).click();
+
       cy.get(".MuiCardActions-root").eq(0).contains("More Info").click();
+
     });
     it("should navigate backward and forward between the movies detail page and the Discover page.", () => {
       cy.get("button[aria-label='go back'").click();
@@ -86,6 +89,7 @@ describe("Navigation", () => {
       cy.get("header").find(".MuiToolbar-root").find("button").eq(1).click();
       cy.get("button[aria-label='go back'").click();
       cy.get("button[aria-label='go forward'").click();
+
      
      
     });
