@@ -82,6 +82,8 @@ describe("Navigation", () => {
       cy.url().should("include", `/movies/${movies[0].id}`);
       cy.get("h3").contains(movies[0].title);
     });
+   
   });
+
 
 });

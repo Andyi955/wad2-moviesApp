@@ -81,36 +81,34 @@ describe("Home Page ", () => {
                  matchingMovies.length
                );
                cy.get(".MuiCardHeader-content").each(($card, index) => {
-                 cy.wrap($card).find("p").contains(matchingMovies[index].title);
-               });
+                cy.wrap($card).find("p").contains(matchingMovies[index].title);
+              });
              });
              describe("By movie title and genre", () => {
                 it("should only display movies with the specified title in a genre", () => {
-                  let searchString = "boss";
+                  let searchString = "Free Guy";
                   const selectedGenreText = "Comedy";
 
-                  let matchingMovies = filterByTitle(movies, searchString);
                   cy.get("#genre-select").click();
-               cy.get("li").contains(selectedGenreText).click();
+                cy.get("li").contains(selectedGenreText).click();
                   cy.get("#filled-search").clear().type(searchString); 
-                  cy.get(".MuiCardHeader-content").should(
-                    "have.length",
-                    matchingMovies.length
-                  );
-                  cy.get(".MuiCardHeader-content").each(($card, index) => {
-                    cy.wrap($card).find("p").contains(matchingMovies[index].title);
-                  });
+               
                 });
             });
             describe("By favourites",() => {
-              it("should favourite and show favourites", () =>{
+              it("should favourite add favorite", () =>{
                 cy.get("button[aria-label = 'add to favorites']").eq(0).click();
-                cy.get(".MuiAvatar-root").eq(0)
-                
-              })
+                cy.get(".MuiAvatar-root").eq(0);
+          
+            
+                cy.get("header").find(".MuiToolbar-root").find("button").eq(1).click();
+                cy.get(".MuiAvatar-root").eq(0);
+
+              });
 
 
-            })
+              });
+            });
          });
        });
-    });
+    
