@@ -20,7 +20,7 @@ import AddToFavoritesIcon from '../components/cardIcons/addToFavorites'
   
     // Redundant, but necessary to avoid app crashing.
     const favorites = movies.filter(m => m.favorite)
-    localStorage.setItem('upcomingfavorites', JSON.stringify(favorites))
+    localStorage.setItem('favorites', JSON.stringify(favorites))
     const addToFavorites = (movieId) => true 
   
     return (
