@@ -21,6 +21,7 @@ import AddToPlaylistIcon from '../components/cardIcons/addToPlaylist'
     // Redundant, but necessary to avoid app crashing.
     const playlists = movies.filter(m => m.playlist)
     localStorage.setItem('playlist', JSON.stringify(playlists))
+    //const addToPlaylist = (movieId) => true 
   
     return (
       <PageTemplate
