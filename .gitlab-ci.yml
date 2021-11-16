@@ -39,6 +39,13 @@ bundle_app:
     paths:
       - build/
 
+build_jobX:
+  stage: build
+  only:
+    - develop
+  script:
+    - echo "build job X on demoBranch works"      
+
 e2etest:    
   stage: test
   script:
