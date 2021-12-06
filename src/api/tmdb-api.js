@@ -143,7 +143,7 @@ export const getMovie = (args) => {
   };
 
   export const getTv = (args) => {
-    // console.log(args)
+     console.log(args)
     const [, idPart] = args.queryKey;
     const { id } = idPart;
     return fetch(

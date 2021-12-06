@@ -5,7 +5,6 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
 import Button from "@material-ui/core/Button";
-
 import MenuIcon from "@material-ui/icons/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
@@ -28,19 +27,22 @@ const SiteHeader = ( { history }) => {
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   const menuOptions = [
-    { label: "Home", path: "/" },
+    { label: "Home", path: "/Homepage" },
     { label: "Favorites", path: "/movies/favorites" },
     { label: "Upcoming Movies", path: "/movies/upcomingmovies" },
-    { label: "Tv Shows", path: "/tv/discovertv" },
+    { label: "Tv Shows", path: "/movies/discovertv" },
   ];
 
   const handleMenuSelect = (pageURL) => {
     history.push(pageURL);
+    console.log(pageURL)
   };
 
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
+    console.log(event)
   };
+
 
   return (
     <>
