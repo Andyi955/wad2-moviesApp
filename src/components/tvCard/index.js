@@ -5,13 +5,12 @@ import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import CardHeader from "@material-ui/core/CardHeader";
-import { Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-////import FavoriteIcon from "@material-ui/icons/Favorite";
+import FavoriteIcon from "@material-ui/icons/Favorite";
 import CalendarIcon from "@material-ui/icons/CalendarTodayTwoTone";
 import StarRateIcon from "@material-ui/icons/StarRate";
-//import IconButton from "@material-ui/core/IconButton";
+import IconButton from "@material-ui/core/IconButton";
 import Grid from "@material-ui/core/Grid";
 import img from '../../images/tv-poster-placeholder.png'
 
@@ -23,8 +22,9 @@ const useStyles = makeStyles({
   },
 });
 
-export default function TvCard({tv}) {
+export default function TvCard(props) {
   const classes = useStyles();
+  const tv = props.tv;
   return (
     <Card className={classes.card}>
       <CardHeader className={classes.header} title={tv.name} />
@@ -53,11 +53,12 @@ export default function TvCard({tv}) {
         </Grid>
       </CardContent>
       <CardActions disableSpacing>
-      <Link to={`/tv/${tv.id}`}>
+        <IconButton aria-label="add to favorites" onClick={null}>
+          <FavoriteIcon color="primary" fontSize="large" />
+        </IconButton>
         <Button variant="outlined" size="medium" color="primary">
           More Info ...
         </Button>
-        </Link>
       </CardActions>
     </Card>
   );

@@ -75,23 +75,7 @@ export default function FilterActorsCard(props) {
       variant="filled"
       onChange={handleTextChange}
     />
-        <FormControl className={classes.formControl}>
-          <InputLabel id="genre-label">Genre</InputLabel>
-          <Select
-              labelId="genre-label"
-              id="genre-select"
-              value={props.genreFilter}
-              onChange={handleGenreChange}
-             >
-            {genres.map((genre) => {
-              return (
-                <MenuItem key={genre.id} value={genre.id}>
-                  {genre.name}
-                </MenuItem>
-              );
-            })}
-          </Select>
-        </FormControl>
+      
       </CardContent>
       <CardMedia
         className={classes.media}

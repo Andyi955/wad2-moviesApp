@@ -8,6 +8,10 @@ import CardHeader from "@material-ui/core/CardHeader";
 //import IconButton from "@material-ui/core/IconButton";
 import Grid from "@material-ui/core/Grid";
 import img from '../../images/tv-poster-placeholder.png'
+import Typography from "@material-ui/core/Typography";
+import StarRateIcon from "@material-ui/icons/StarRate";
+
+
 
 const useStyles = makeStyles({
   card: { maxWidth: 345 },
@@ -31,8 +35,17 @@ export default function ActorCard({actor}) {
         }
       />
       <CardContent>
-        <Grid container>
+       
+      <Grid container>
+         
+          <Grid item xs={6}>
+            <Typography variant="h6" component="p">
+              <StarRateIcon fontSize="small" />
+              {"  "} {actor.popularity}{" "}
+            </Typography>
+          </Grid>
         </Grid>
+        
       </CardContent>
       <CardActions disableSpacing>
       </CardActions>

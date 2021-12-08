@@ -20,9 +20,7 @@ function ActorListPageTemplate({ actors, title, action }) {
     .filter((m) => {
       return m.name?.toLowerCase().search(nameFilter.toLowerCase()) !== -1;
     })
-    .filter((m) => {
-      return genreId > 0 ? m.genre_ids.includes(genreId) : true;
-    });
+  
 
   const handleChange = (type, value) => {
     if (type === "name") setNameFilter(value);
@@ -39,7 +37,6 @@ function ActorListPageTemplate({ actors, title, action }) {
           <FilterCard
             onUserInput={handleChange}
             titleFilter={nameFilter}
-            genreFilter={genreFilter}
           />
         </Grid>
         <ActorList action={action} actors={displayedactors}></ActorList>
