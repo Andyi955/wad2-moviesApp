@@ -23,7 +23,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function TvCard({tv,action}) {
+export default function TvCard({tv}) {
   const classes = useStyles();
   return (
     <Card className={classes.card}>
@@ -53,7 +53,6 @@ export default function TvCard({tv,action}) {
         </Grid>
       </CardContent>
       <CardActions disableSpacing>
-      {action(tv)}
       <Link to={`/tv/${tv.id}`}>
         <Button variant="outlined" size="medium" color="primary">
           More Info ...

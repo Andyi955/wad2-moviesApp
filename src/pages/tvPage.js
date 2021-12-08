@@ -3,7 +3,6 @@ import PageTemplate from "../components/templateTvListPage";
 import { useQuery } from 'react-query'
 import Spinner from '../components/spinner'
 import {getTVShows} from '../api/tmdb-api'
-import AddToFavoritesIcon from '../components/cardIcons/addToFavorites'
 
 
 const TvPage = (props) => {
@@ -26,9 +25,7 @@ const TvPage = (props) => {
     <PageTemplate
       title="Discover Tv Shows"
       tvs={tvs}
-      action={(tv) => {
-        return <AddToFavoritesIcon tv={tv} />
-      }}
+    
     />    
   );
 };
