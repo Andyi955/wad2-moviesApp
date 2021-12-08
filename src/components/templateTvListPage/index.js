@@ -10,7 +10,7 @@ const useStyles = makeStyles({
   },
 });
 
-function TvListPageTemplate({ tvs, title, selectFavorite }) {
+function TvListPageTemplate({ tvs, title, action }) {
   const classes = useStyles();
   const [nameFilter, setNameFilter] = useState("");
   const [genreFilter, setGenreFilter] = useState("0");
@@ -42,7 +42,7 @@ function TvListPageTemplate({ tvs, title, selectFavorite }) {
             genreFilter={genreFilter}
           />
         </Grid>
-        <TvList selectFavorite={selectFavorite} tvs={displayedtv}></TvList>
+        <TvList action={action} tvs={displayedtv}></TvList>
       </Grid>
     </Grid>
   );

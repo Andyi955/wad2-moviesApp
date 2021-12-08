@@ -1,10 +1,10 @@
 import React from "react";
-import MovieHeader from "../headerTv";
+import TvHeader from "../headerTv";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
 import GridList from "@material-ui/core/GridList";
 import GridListTile from "@material-ui/core/GridListTile";
-import { getTvGenres } from "../../api/tmdb-api";
+import { getTvImages } from "../../api/tmdb-api";
 import { useQuery } from "react-query";
 import Spinner from '../spinner'
 
@@ -25,7 +25,7 @@ const TemplateTvPage = ({ tv, children }) => {
   const classes = useStyles();
   const { data , error, isLoading, isError } = useQuery(
     ["images", { id: tv.id }],
-    getTvGenres
+    getTvImages
   );
 
   if (isLoading) {
@@ -39,7 +39,7 @@ const TemplateTvPage = ({ tv, children }) => {
 
   return (
     <>
-      <MovieHeader movie={tv} />
+      <TvHeader tv={tv} />
 
       <Grid container spacing={5} style={{ padding: "15px" }}>
         <Grid item xs={3}>
