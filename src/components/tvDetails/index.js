@@ -2,12 +2,12 @@ import React, { useState} from "react";
 import Chip from "@material-ui/core/Chip";
 import Paper from "@material-ui/core/Paper";
 import AccessTimeIcon from "@material-ui/icons/AccessTime";
-import MonetizationIcon from "@material-ui/icons/MonetizationOn";
 import StarRate from "@material-ui/icons/StarRate";
 import NavigationIcon from "@material-ui/icons/Navigation";
 import Fab from "@material-ui/core/Fab";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
+import TvIcon from '@material-ui/icons/Tv';
 import Drawer from "@material-ui/core/Drawer";
 import MovieReviews from "../movieReviews"
 
@@ -56,8 +56,9 @@ const TvDetails = ( {tv}) => {
       </Paper>
 
       <Paper component="ul" className={classes.root}>
-        <Chip icon={<AccessTimeIcon />} label={`${tv.runtime} min.`} />
-     
+        <Chip icon={<AccessTimeIcon />} label={`${tv.number_of_seasons} Seasons.`} />
+        <Chip icon={<TvIcon />} label={`${tv.number_of_episodes} episodes.`} />
+
         <Chip
           icon={<StarRate />}
           label={`${tv.vote_average} (${tv.vote_count})`}
