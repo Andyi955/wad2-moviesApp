@@ -5,16 +5,18 @@ import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import CardHeader from "@material-ui/core/CardHeader";
-//import IconButton from "@material-ui/core/IconButton";
+import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import img from '../../images/tv-poster-placeholder.png'
 import Typography from "@material-ui/core/Typography";
 import StarRateIcon from "@material-ui/icons/StarRate";
+import { Link } from "react-router-dom";
+import Chip from "@material-ui/core/Chip";
 
 
 
 const useStyles = makeStyles({
-  card: { maxWidth: 345 },
+  card: { border: "black", maxWidth: 400 },
   media: { height: 500 },
   avatar: {
     backgroundColor: "rgb(0, 255, 0)",
@@ -41,13 +43,19 @@ export default function ActorCard({actor}) {
           <Grid item xs={6}>
             <Typography variant="h6" component="p">
               <StarRateIcon fontSize="small" />
-              {"  "} {actor.popularity}{" "}
+              {"  "} {actor.popularity} {"Popularity "}
             </Typography>
           </Grid>
         </Grid>
         
+        
       </CardContent>
       <CardActions disableSpacing>
+      <Link to={`/actor/${actor.id}`}>
+      <Button variant="outlined" size="medium" color="primary">
+          More Info ...
+        </Button>
+        </Link>
       </CardActions>
     </Card>
   );

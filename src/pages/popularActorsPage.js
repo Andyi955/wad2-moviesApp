@@ -6,7 +6,7 @@ import {getPopularActors} from '../api/tmdb-api'
 
 
 const PopularActorsPage = (props) => {
-  const {  data, error, isLoading, isError }  = useQuery('', getPopularActors)
+  const {  data, error, isLoading, isError }  = useQuery('actors', getPopularActors)
 
   if (isLoading) {
     return <Spinner />

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-// import Header from "../headerTvList";
+import Header from "../headerMovieList";
 import FilterCard from "../filterActorsCard";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
@@ -10,7 +10,7 @@ const useStyles = makeStyles({
   },
 });
 
-function ActorListPageTemplate({ actors, name, action }) {
+function ActorListPageTemplate({ actors, title, action }) {
   const classes = useStyles();
   const [nameFilter, setNameFilter] = useState("");
 
@@ -28,7 +28,7 @@ function ActorListPageTemplate({ actors, name, action }) {
   return (
     <Grid container className={classes.root}>
       <Grid item xs={12}>
-        {/* <Header title={title} /> */}
+        {<Header title={title} />}
       </Grid>
       <Grid item container spacing={5}>
         <Grid key="find" item xs={12} sm={6} md={4} lg={3} xl={2}>

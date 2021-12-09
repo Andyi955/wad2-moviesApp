@@ -4,12 +4,13 @@ import MovieReviewPage from "./pages/movieReviewPage";
 import UpcomingMoviesPage from "./pages/upcomingMoviesPage";
 import PopularActorsPage from './pages/popularActorsPage';
 import TvPage from './pages/tvPage';
+import ActorDetailsPage from './pages/actorDetailsPage'
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
 import HomePage from "./pages/homePage";
 import MoviePage from "./pages/movieDetailsPage";
-import TvDetailPage from "./pages/tvDetailsPage"
+import TvDetailPage from "./pages/tvDetailsPage";
 import FavoriteMoviesPage from "./pages/favoriteMoviesPage"; // NEW
 import { QueryClientProvider, QueryClient } from "react-query";
 import { ReactQueryDevtools } from 'react-query/devtools';
@@ -43,6 +44,7 @@ const App = () => {
       <Route path="/reviews/:id" component={MovieReviewPage} />   
         <Route path="/movies/:id" component={MoviePage} />
         <Route path="/tv/:id" component={TvDetailPage} />
+        <Route path="/actor/:id" component={ActorDetailsPage} />
         <Redirect from="*" to="/" />
       </Switch>
       </MoviesContextProvider>
