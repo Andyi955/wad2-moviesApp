@@ -10,24 +10,19 @@ const useStyles = makeStyles({
   },
 });
 
-function ActorListPageTemplate({ actors, title, action }) {
+function ActorListPageTemplate({ actors, name, action }) {
   const classes = useStyles();
   const [nameFilter, setNameFilter] = useState("");
-  const [genreFilter, setGenreFilter] = useState("0");
-  const genreId = Number(genreFilter);
 
   let displayedactors = actors
     .filter((m) => {
       return m.name?.toLowerCase().search(nameFilter.toLowerCase()) !== -1;
     })
-    .filter((m) => {
-      return genreId > 0 ? m.genre_ids.includes(genreId) : true;
-    });
+ 
   
 
   const handleChange = (type, value) => {
     if (type === "name") setNameFilter(value);
-    else setGenreFilter(value);
   };
 
   return (

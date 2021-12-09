@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function FilterMoviesCard(props) {
   const classes = useStyles();
-  const { data, error, isLoading, isError } = useQuery("genres", getTvGenres);
+  const { data, error, isLoading, isError } = useQuery("genre", getTvGenres);
 
   if (isLoading) {
     return <Spinner />;

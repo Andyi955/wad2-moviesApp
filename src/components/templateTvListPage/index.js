@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Header from "../headerTvList";
+import Header from "../headerMovieList";
 import FilterCard from "../filterTvCard";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
