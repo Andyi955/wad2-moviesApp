@@ -62,5 +62,31 @@ describe("Tv Page ", () => {
 
      });
       });
+      describe("By tv genre", () => {
+        it("should display tv shows with the specified genre only", () => {
+           const selectedGenreId = 10759;
+           const selectedGenreText = "Action & Adventure";
+           const matchingTvs = filterByGenre(tvs, selectedGenreId);
+           cy.get("#genre-select").click();
+           cy.get("li").contains(selectedGenreText).click();
+           cy.get(".MuiCardHeader-content").should(
+             "have.length",
+             matchingTvs.length
+           );
+         
+        });
+         describe("By tv title and genre", () => {
+            it("should only display tv with the specified title in a genre", () => {
+              let searchString = "Squid Game";
+              const selectedGenreText = "Action & Adventure";
+
+              cy.get("#genre-select").click();
+            cy.get("li").contains(selectedGenreText).click();
+              cy.get("#filled-search").clear().type(searchString); 
+           
+            });
+        });
 });
+  });
 });
+
