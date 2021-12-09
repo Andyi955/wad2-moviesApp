@@ -23,9 +23,8 @@ const useStyles = makeStyles({
   },
 });
 
-export default function TvCard(props) {
+export default function TvCard({tv}) {
   const classes = useStyles();
-  const tv = props.tv;
   return (
     <Card className={classes.card}>
       <CardHeader className={classes.header} title={tv.name} />
@@ -57,10 +56,11 @@ export default function TvCard(props) {
         <IconButton aria-label="add to favorites" onClick={null}>
           <FavoriteIcon color="primary" fontSize="large" />
         </IconButton>
-
+        <Link to={`/tv/${tv.id}`}>
         <Button variant="outlined" size="medium" color="primary">
           More Info ...
         </Button>
+        </Link>
       </CardActions>
     </Card>
   );
