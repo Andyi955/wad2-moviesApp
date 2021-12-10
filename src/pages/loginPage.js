@@ -10,17 +10,8 @@ import { Card } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
 
-const useStyles = makeStyles({
-    card: { maxWidth: 345 },
-    media: { height: 500 },
-    avatar: {
-      backgroundColor: "rgb(0, 255, 0)",
-    },
-  });
-  
 
 const LoginPage = (props) => {
-    const classes = useStyles();
 
     const [registerEmail, setRegisterEmail] = useState("");
     const [registerPassword, setRegisterPassword] = useState("");
