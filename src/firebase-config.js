@@ -5,12 +5,12 @@ import { getAuth } from "firebase/auth";
 
 
 const firebaseConfig = {
-    apiKey: "AIzaSyDTcRgiHPZF5wP8sl-xZHlkZ3pmJ5YkSVc",
-    authDomain: "movie-tmdb-e2c58.firebaseapp.com",
-    projectId: "movie-tmdb-e2c58",
-    storageBucket: "movie-tmdb-e2c58.appspot.com",
-    messagingSenderId: "692633223993",
-    appId: "1:692633223993:web:03218454ceda9b82389ee8",
+    apiKey: "AIzaSyDp_hMpEH5Tq8Bm5TxUzev0S5T3xYffE8g",
+    authDomain: "movieapp-e17fb.firebaseapp.com",
+    projectId: "movieapp-e17fb",
+    storageBucket: "movieapp-e17fb.appspot.com",
+    messagingSenderId: "764534972817",
+    appId: "1:764534972817:web:9b2b1ebb3d01227ff3ba30",
     measurementId: "${config.measurementId}"
   };
 
