@@ -11,12 +11,11 @@ import img from '../../images/tv-poster-placeholder.png'
 import Typography from "@material-ui/core/Typography";
 import StarRateIcon from "@material-ui/icons/StarRate";
 import { Link } from "react-router-dom";
-import Chip from "@material-ui/core/Chip";
 
 
 
 const useStyles = makeStyles({
-  card: { border: "black", maxWidth: 400 },
+  card: { background: "black", maxWidth: 400, color: "white" },
   media: { height: 500 },
   avatar: {
     backgroundColor: "rgb(0, 255, 0)",
