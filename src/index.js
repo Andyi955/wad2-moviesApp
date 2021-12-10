@@ -5,6 +5,7 @@ import UpcomingMoviesPage from "./pages/upcomingMoviesPage";
 import PopularActorsPage from './pages/popularActorsPage';
 import TvPage from './pages/tvPage';
 import ActorDetailsPage from './pages/actorDetailsPage'
+import LoginPage from './pages/loginPage';
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
@@ -40,6 +41,7 @@ const App = () => {
         <Route exact path="/movies/upcomingmovies" component={UpcomingMoviesPage} />
         <Route exact path="/tv/discovertv" component={TvPage} />
         <Route exact path="/popular/actors" component={PopularActorsPage} />
+        <Route exact path="/login" component={LoginPage} />
       <Route exact path="/reviews/form" component={AddMovieReviewPage} />
       <Route path="/reviews/:id" component={MovieReviewPage} />   
         <Route path="/movies/:id" component={MoviePage} />
