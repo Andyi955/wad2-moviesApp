@@ -8,10 +8,8 @@ import CardMedia from "@material-ui/core/CardMedia";
 import CardHeader from "@material-ui/core/CardHeader";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-import FavoriteIcon from "@material-ui/icons/Favorite";
 import CalendarIcon from "@material-ui/icons/CalendarTodayTwoTone";
 import StarRateIcon from "@material-ui/icons/StarRate";
-import IconButton from "@material-ui/core/IconButton";
 import Grid from "@material-ui/core/Grid";
 import img from '../../images/tv-poster-placeholder.png'
 
@@ -53,9 +51,6 @@ export default function TvCard({tv}) {
         </Grid>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites" onClick={null}>
-          <FavoriteIcon color="primary" fontSize="large" />
-        </IconButton>
         <Link to={`/tv/${tv.id}`}>
         <Button variant="outlined" size="medium" color="primary">
           More Info ...
