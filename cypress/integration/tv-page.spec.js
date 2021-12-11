@@ -54,7 +54,7 @@ describe("Tv Page ", () => {
        );
        });
  
-     it("should only display movies with xyz in the title", () => {
+     it("should only display no tv shows after inputtig xyz", () => {
         let searchString = "xyz";
         let matchingTvs = filterByTitle(tvs, searchString);
         cy.get("#filled-search").clear().type(searchString); // Enter xyz in text box

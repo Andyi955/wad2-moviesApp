@@ -1,4 +1,4 @@
-import { useState,Form } from "react";
+import { useState } from "react";
 import {createUserWithEmailAndPassword,onAuthStateChanged} from "firebase/auth";
 import { auth } from "../firebase-config";
 
@@ -17,6 +17,7 @@ const SignUpPage = (props) => {
   
     const register = async () => {
       try {
+        // eslint-disable-next-line no-unused-vars
         const user = await createUserWithEmailAndPassword(
           auth,
           registerEmail,
@@ -53,10 +54,11 @@ const SignUpPage = (props) => {
             />
     
             <button onClick={register}> Create User</button>
+            <h4> User Registered:</h4>
+        {user?.email}
           </div>
               
-          <h4> User Registered:</h4>
-        {user?.email}
+          
           </div>
     
 );
