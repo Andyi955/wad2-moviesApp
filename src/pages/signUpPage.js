@@ -53,9 +53,9 @@ const SignUpPage = (props) => {
               }}
             />
     
-            <button onClick={register}> Create User</button>
-            <h4> User Registered:</h4>
-        {user?.email}
+            <button aria-label = 'Register' onClick={register}> Create User</button>
+            <h4> User Registered:    {user?.email}</h4>
+    
           </div>
               
           

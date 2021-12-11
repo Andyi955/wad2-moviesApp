@@ -75,6 +75,7 @@ describe("Navigation", () => {
       cy.get("h3").contains(movies[0].title);
     });
   });
+  
   describe("The forward/backward links", () => {
     beforeEach(() => {
       cy.get("button[aria-label='add to favorites']").eq(0).click();
@@ -96,10 +97,16 @@ describe("Navigation", () => {
       cy.get("button[aria-label='go forward'").click();
 
      
-     
-    });
-   
-  });
+       });
+   });
+describe("Login Page/Register Page Navigation",()=>{
+   it("should goto the login page and then to the register page",()=>{
+   cy.get("header").find(".MuiToolbar-root").find("button").eq(5).click();
+   cy.get("h3").contains("Login");
+   cy.get("h4").contains("Register").click()
+   cy.get("h3").contains("Register User");
 
+   })
+})
 
 });

@@ -60,13 +60,12 @@ const LoginPage = (props) => {
             }}
           />
           
-          <button onClick={login}> Login</button>
+          <button aria-label ='Login' onClick={login}> Login</button>
        
         </div>
   
-        <h4> User Logged In: </h4>
-        {user?.email}
-        <button onClick={logout}> Sign Out </button>
+        <h4> User Logged In: {user?.email}</h4>
+        <button aria-label = 'SignOut' onClick={logout}> Sign Out </button>
 
         <Link to={`/signup`}>
         <h4>Register</h4>
