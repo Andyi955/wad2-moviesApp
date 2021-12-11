@@ -1,20 +1,13 @@
 import { useState } from "react";
-import {
-    createUserWithEmailAndPassword,
-    signInWithEmailAndPassword,
-    onAuthStateChanged,
-    signOut,
-  } from "firebase/auth";
+import {signInWithEmailAndPassword,onAuthStateChanged,signOut,} from "firebase/auth";
 import { auth } from "../firebase-config";
-import { Card } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
+import { Link } from "react-router-dom";
 
 
 
 const LoginPage = (props) => {
 
-    const [registerEmail, setRegisterEmail] = useState("");
-    const [registerPassword, setRegisterPassword] = useState("");
+    
     const [loginEmail, setLoginEmail] = useState("");
     const [loginPassword, setLoginPassword] = useState("");
   
@@ -24,19 +17,7 @@ const LoginPage = (props) => {
       setUser(currentUser);
     });
   
-    const register = async () => {
-      try {
-        const user = await createUserWithEmailAndPassword(
-          auth,
-          registerEmail,
-          registerPassword
-        );
-        console.log(user);
-      } catch (error) {
-        console.log(error.message);
-        
-      }
-    };
+    
   
     const login = async () => {
       try {
@@ -46,8 +27,12 @@ const LoginPage = (props) => {
           loginPassword
         );
         console.log(user);
+        alert('Login Succesful')
+
       } catch (error) {
      console.log(error.message);
+     alert('Incorrect Email or Password')
+
 
       }
     };
@@ -58,24 +43,7 @@ const LoginPage = (props) => {
   
     return (
        
-      <div className="App">
-        <div>
-          <h3> Register User </h3>
-          <input
-            placeholder="Email..."
-            onChange={(event) => {
-              setRegisterEmail(event.target.value);
-            }}
-          />
-          <input
-            placeholder="Password..."
-            onChange={(event) => {
-              setRegisterPassword(event.target.value);
-            }}
-          />
-  
-          <button onClick={register}> Create User</button>
-        </div>
+     <div>
   
         <div>
           <h3> Login </h3>
@@ -99,6 +67,10 @@ const LoginPage = (props) => {
         <h4> User Logged In: </h4>
         {user?.email}
         <button onClick={logout}> Sign Out </button>
+
+        <Link to={`/signup`}>
+        <h4>Register</h4>
+        </Link>
       </div>
    
     );
