@@ -42,6 +42,11 @@ describe("Navigation", () => {
         cy.url().should("include", `/favorites`);
         cy.get("h3").contains("Favourite Movies");
       });
+      it("should allow navigation to the Tv shows page from the link", () => {
+        cy.get("header").find(".MuiToolbar-root").find("button").eq(4).click();
+        cy.url().should("include", `/tv/discovertv`);
+        cy.get("h3").contains("Tv Shows");
+      });
     });
     describe(
       "when the viewport is a mobile",
