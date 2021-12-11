@@ -11,7 +11,6 @@ const firebaseConfig = {
     storageBucket: "movieapp-e17fb.appspot.com",
     messagingSenderId: "764534972817",
     appId: "1:764534972817:web:9b2b1ebb3d01227ff3ba30",
-    measurementId: "${config.measurementId}"
   };
 
   const app = initializeApp(firebaseConfig);
