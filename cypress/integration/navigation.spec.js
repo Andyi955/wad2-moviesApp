@@ -37,19 +37,13 @@ describe("Navigation", () => {
   });
   describe("The site header", () => {
     describe("when the viewport is desktop scale", () => {
-      it("should allow navigation to the Favourites page from the link", () => {
-        let emailString = "test@test.com"
-        let passwordString = "test12"
-        cy.get("header").find(".MuiToolbar-root").find("button").eq(5).click();
-        cy.url().should("include", `/login`);
-          cy.get('input').eq(0).clear().type(emailString)
-          cy.get('input').eq(1).clear().type(passwordString)
-        cy.get("button[aria-label='Login']").click()
+      it("should allow navigation to the Popular Actors Page from the link", () => {
+     
         cy.get("header").find(".MuiToolbar-root").find("button").eq(0).click();
 
-        cy.get("header").find(".MuiToolbar-root").find("button").eq(1).click();
-        cy.url().should("include", `/favorites`);
-        cy.get("h3").contains("Favourite Movies");
+        cy.get("header").find(".MuiToolbar-root").find("button").eq(3).click();
+        cy.url().should("include", `/popular/actors`);
+        cy.get("h3").contains("Actors");
       });
       it("should allow navigation to the Tv shows page from the link", () => {
         cy.get("header").find(".MuiToolbar-root").find("button").eq(4).click();
