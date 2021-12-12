@@ -9,7 +9,7 @@ beforeEach(() => {
   });
 
   describe("Register",()=>{
-      it("Should register a user with invalid email ",()=>{
+      it("Should not register a user with invalid email ",()=>{
         let emailString = "testing@test.com"
         let passwordString = "test12"
         cy.get('input').eq(0).clear().type(emailString)

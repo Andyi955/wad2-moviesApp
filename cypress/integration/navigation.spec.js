@@ -38,6 +38,14 @@ describe("Navigation", () => {
   describe("The site header", () => {
     describe("when the viewport is desktop scale", () => {
       it("should allow navigation to the Favourites page from the link", () => {
+        let emailString = "test@test.com"
+        let passwordString = "test12"
+        cy.get("header").find(".MuiToolbar-root").find("button").eq(5).click();
+        cy.url().should("include", `/login`);
+          cy.get('input').eq(0).clear().type(emailString)
+          cy.get('input').eq(1).clear().type(passwordString)
+        cy.get("button[aria-label='Login']").click()
+        
         cy.get("header").find(".MuiToolbar-root").find("button").eq(1).click();
         cy.url().should("include", `/favorites`);
         cy.get("h3").contains("Favourite Movies");
@@ -56,10 +64,11 @@ describe("Navigation", () => {
       },
       () => {
         it("should allow navigation to the Favourites page from the dropdown menu", () => {
+ 
           cy.get("header").find("button").click();
-          cy.get("li").eq(1).click();
-          cy.url().should("include", `/favorites`);
-          cy.get("h3").contains("Favourite Movies");
+          cy.get("li").eq(3).click();
+          cy.url().should("include", `/popular/actors`);
+          cy.get("h3").contains("Actors");
         });
       });
   });
@@ -92,7 +101,16 @@ describe("Navigation", () => {
       cy.get("h3").contains(movies[0].title);
     });
     it("should navigate backward and forward between the favourite movies page and movie details page.", () => {
+      cy.get("header").find(".MuiToolbar-root").find("button").eq(5).click();
+
+      let emailString = "test@test.com"
+      let passwordString = "test12"
+      cy.get('input').eq(0).clear().type(emailString)
+      cy.get('input').eq(1).clear().type(passwordString)
+      cy.get("button[aria-label='Login']").click()
       cy.get("header").find(".MuiToolbar-root").find("button").eq(1).click();
+      cy.get(".MuiCardActions-root").eq(0).contains("More Info").click();
+
       cy.get("button[aria-label='go back'").click();
       cy.get("button[aria-label='go forward'").click();
 
@@ -106,7 +124,7 @@ describe("Login Page/Register Page Navigation",()=>{
    cy.get("h4").contains("Register").click()
    cy.get("h3").contains("Register User");
 
-   })
-})
+   });
+});
 
 });
