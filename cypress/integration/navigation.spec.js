@@ -95,7 +95,6 @@ describe("Navigation", () => {
       cy.get("h3").contains(movies[0].title);
     });
     it("should navigate backward and forward between the favourite movies page and movie details page.", () => {
-      cy.get("header").find(".MuiToolbar-root").find("button").eq(5).click();
 
   
       cy.get("header").find(".MuiToolbar-root").find("button").eq(1).click();
