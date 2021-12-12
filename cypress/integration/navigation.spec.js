@@ -63,7 +63,7 @@ describe("Navigation", () => {
         viewportWidth: 414,
       },
       () => {
-        it("should allow navigation to the Favourites page from the dropdown menu", () => {
+        it("should allow navigation to the Actors page from the dropdown menu", () => {
  
           cy.get("header").find("button").click();
           cy.get("li").eq(3).click();
@@ -76,7 +76,6 @@ describe("Navigation", () => {
     beforeEach(() => {
       cy.get("button[aria-label='add to favorites']").eq(0).click();
       cy.get("button[aria-label='add to favorites']").eq(1).click();
-      cy.get("header").find(".MuiToolbar-root").find("button").eq(1).click();
     });
     it("should navigate to the movies detail page and change the browser URL", () => {
       cy.get(".MuiCardActions-root").eq(0).contains("More Info").click();
