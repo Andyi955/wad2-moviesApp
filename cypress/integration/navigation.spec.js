@@ -97,11 +97,7 @@ describe("Navigation", () => {
     it("should navigate backward and forward between the favourite movies page and movie details page.", () => {
       cy.get("header").find(".MuiToolbar-root").find("button").eq(5).click();
 
-      let emailString = "test@test.com"
-      let passwordString = "test12"
-      cy.get('input').eq(0).clear().type(emailString)
-      cy.get('input').eq(1).clear().type(passwordString)
-      cy.get("button[aria-label='Login']").click()
+  
       cy.get("header").find(".MuiToolbar-root").find("button").eq(1).click();
       cy.get(".MuiCardActions-root").eq(0).contains("More Info").click();
 
