@@ -105,7 +105,8 @@ describe("Navigation", () => {
     //   cy.get("button[aria-label='go forward'").click();
 
      
-    //    }); //This works in cypress but not the ec2 test 
+    //    }); //This works in cypress but not in he ec2 test not sure what the problem is
+    
    });
 describe("Login Page/Register Page Navigation",()=>{
    it("should goto the login page and then to the register page",()=>{
