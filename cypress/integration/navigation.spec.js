@@ -96,9 +96,10 @@ describe("Navigation", () => {
     });
     it("should navigate backward and forward between the favourite movies page and movie details page.", () => {
 
-  
       cy.get("header").find(".MuiToolbar-root").find("button").eq(1).click();
       cy.get(".MuiCardActions-root").eq(0).contains("More Info").click();
+
+    
 
       cy.get("button[aria-label='go back'").click();
       cy.get("button[aria-label='go forward'").click();
