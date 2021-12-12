@@ -17,8 +17,7 @@ import FavoriteMoviesPage from "./pages/favoriteMoviesPage"; // NEW
 import { QueryClientProvider, QueryClient } from "react-query";
 import { ReactQueryDevtools } from 'react-query/devtools';
 import MoviesContextProvider from "./contexts/moviesContext";
-
-
+import { AuthContextProvider,useAuthState } from './firebase-config';
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
@@ -28,17 +27,29 @@ const queryClient = new QueryClient({
     },
   },
 });
+const AuthenicatedRoute = ({component:C,...props}) => {
+  const {isAuthenticated} = useAuthState()
+  return (
+    <Route
+    {...props}
+    render={routeProps =>
+    isAuthenticated ? <C {...routeProps}/> : <Redirect to="/login"/>
+    }
+    />
+  )
+} 
 
 const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
     <BrowserRouter>
+    <AuthContextProvider>
         <SiteHeader />      {/* New Header  */}
         <MoviesContextProvider>
             {" "}
       <Switch>
       <Route exact path="/" component={HomePage} />
-      <Route exact path="/movies/favorites" component={FavoriteMoviesPage} />
+      <AuthenicatedRoute exact path="/movies/favorites" component={FavoriteMoviesPage} />
         <Route exact path="/movies/upcomingmovies" component={UpcomingMoviesPage} />
         <Route exact path="/tv/discovertv" component={TvPage} />
         <Route exact path="/popular/actors" component={PopularActorsPage} />
@@ -52,6 +63,7 @@ const App = () => {
         <Redirect from="*" to="/" />
       </Switch>
       </MoviesContextProvider>
+      </AuthContextProvider>
     </BrowserRouter>
     <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
