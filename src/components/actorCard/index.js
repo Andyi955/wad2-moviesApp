@@ -15,7 +15,7 @@ import { Link } from "react-router-dom";
 
 
 const useStyles = makeStyles({
-  card: { background: "black", maxWidth: 400, color: "white" },
+  card: { background: "black", width: 350, color: "white" },
   media: { height: 500 },
   avatar: {
     backgroundColor: "rgb(0, 255, 0)",
@@ -40,17 +40,27 @@ export default function ActorCard({actor}) {
       <Grid container>
          
           <Grid item xs={6}>
-            <Typography variant="h6" component="p">
+            <Typography variant="h7" component="p">
               <StarRateIcon fontSize="small" />
               {"  "} {actor.popularity} {"Popularity "}
             </Typography>
+          </Grid>
+          <Grid item xs={6}>
+
+          <Typography variant="h7" component="p">
+              <StarRateIcon fontSize="small" />
+          <Link to={`/movies/${actor.known_for[0].id}`}>
+
+        {"Known For :"} {actor.known_for[0].title}
+        </Link>
+        </Typography>
           </Grid>
         </Grid>
         
         
       </CardContent>
       <CardActions disableSpacing>
-      <Link to={`/actor/${actor.id}`}>
+      <Link color = 'white' to={`/actor/${actor.id}`}>
       <Button variant="outlined" size="medium" color="primary">
           More Info ...
         </Button>

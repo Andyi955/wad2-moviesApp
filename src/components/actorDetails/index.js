@@ -51,7 +51,7 @@ const ActorDetails = ( {actor}) => {
         <Chip icon={<DateRange />} label={actor.birthday} />
 
 
-        
+
       
      
    

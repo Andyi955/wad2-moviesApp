@@ -4,6 +4,9 @@ import FilterCard from "../filterTvCard";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
 import TvList from "../tvList";
+
+
+
 const useStyles = makeStyles({
   root: {
     padding: "20px",
@@ -15,6 +18,11 @@ function TvListPageTemplate({ tvs, title, action }) {
   const [nameFilter, setNameFilter] = useState("");
   const [genreFilter, setGenreFilter] = useState("0");
   const genreId = Number(genreFilter);
+  
+   
+ 
+  
+
 
   let displayedtv = tvs
     .filter((m) => {
@@ -46,5 +54,5 @@ function TvListPageTemplate({ tvs, title, action }) {
       </Grid>
     </Grid>
   );
-}
+  }
 export default TvListPageTemplate;
