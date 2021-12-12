@@ -45,7 +45,8 @@ describe("Navigation", () => {
           cy.get('input').eq(0).clear().type(emailString)
           cy.get('input').eq(1).clear().type(passwordString)
         cy.get("button[aria-label='Login']").click()
-        
+        cy.get("header").find(".MuiToolbar-root").find("button").eq(0).click();
+
         cy.get("header").find(".MuiToolbar-root").find("button").eq(1).click();
         cy.url().should("include", `/favorites`);
         cy.get("h3").contains("Favourite Movies");
