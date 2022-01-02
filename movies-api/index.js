@@ -3,6 +3,8 @@ import express from 'express';
 import moviesRouter from './api/movies';
 import genresRouter from './api/genres';
 import usersRouter from './api/users';
+import session from 'express-session';
+import authenticate from './authenticate';
 
 import './db';
 import './seedData';
@@ -23,11 +25,17 @@ const errHandler = (err, req, res, next) => {
 const app = express();
 
 const port = process.env.PORT;
+app.use(session({
+  secret: 'ilikecake',
+  resave: true,
+  saveUninitialized: true
+}));
 
 app.use(express.json());
-app.use('/api/movies', moviesRouter);
+app.use('/api/movies', authenticate, moviesRouter);
 app.use('/api/genres', genresRouter);
 app.use('/api/users', usersRouter);
+
 app.use(errHandler);
 
 
