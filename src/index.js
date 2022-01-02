@@ -18,6 +18,11 @@ import { QueryClientProvider, QueryClient } from "react-query";
 import { ReactQueryDevtools } from 'react-query/devtools';
 import MoviesContextProvider from "./contexts/moviesContext";
 import { AuthContextProvider,useAuthState } from './firebase-config';
+
+
+
+
+
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
@@ -27,6 +32,10 @@ const queryClient = new QueryClient({
     },
   },
 });
+
+
+
+
 const AuthenicatedRoute = ({component:C,...props}) => {
   const {isAuthenticated} = useAuthState()
   return (
