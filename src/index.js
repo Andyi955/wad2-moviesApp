@@ -7,6 +7,7 @@ import TvPage from './pages/tvPage';
 import ActorDetailsPage from './pages/actorDetailsPage'
 import LoginPage from './pages/loginPage';
 import LoginPageUser from './loginPageUser';
+import SignUpPageUser from './signUpUserPage';
 import SignUpPage from './pages/signUpPage';
 import React from "react";
 import ReactDOM from "react-dom";
@@ -73,6 +74,7 @@ const App = () => {
         <PrivateRoute exact path="/popular/actors" component={PopularActorsPage} />
         <Route exact path="/login" component={LoginPage} />
         <Route exact path="/loginUserName" component={LoginPageUser} />
+        <Route exact path="/signUpUserName" component={SignUpPageUser} />
         <Route exact path="/signup" component={SignUpPage} />
       <Route exact path="/reviews/form" component={AddMovieReviewPage} />
       <Route path="/reviews/:id" component={MovieReviewPage} />   
