@@ -1,5 +1,5 @@
 import React, { useState, createContext } from "react";
-import { login, signup } from "../api/movie-api";
+import { login, signup,addFavouriteMovie,getFavouriteMovies } from "../api/movie-api";
 
 export const AuthContext = createContext(null);
 
@@ -24,6 +24,7 @@ const AuthContextProvider = (props) => {
     }
   };
 
+ 
   const register = async (username, password) => {
     const result = await signup(username, password);
     console.log(result.code);
@@ -41,7 +42,8 @@ const AuthContextProvider = (props) => {
         authenticate,
         register,
         signout,
-        userName
+        userName,
+    
       }}
     >
       {props.children}

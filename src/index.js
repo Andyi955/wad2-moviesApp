@@ -19,10 +19,11 @@ import FavoriteMoviesPage from "./pages/favoriteMoviesPage"; // NEW
 import { QueryClientProvider, QueryClient } from "react-query";
 import { ReactQueryDevtools } from 'react-query/devtools';
 import MoviesContextProvider from "./contexts/moviesContext";
-import { AuthContextProvider,useAuthState } from './firebase-config';
+// import { AuthContextProvider,useAuthState } from './firebase-config';
 import PrivateRoute from "./privateRoute";
 import AuthHeader from "./authHeader";
 import  AuthProvider  from './contexts/authContext';
+import MovieProvider from "./contexts/moviesContext";
 
 
 
@@ -42,37 +43,37 @@ const queryClient = new QueryClient({
 
 
 
-const AuthenicatedRoute = ({component:C,...props}) => {
-  const {isAuthenticated} = useAuthState()
-  return (
-    <Route
-    {...props}
-    render={routeProps =>
-    isAuthenticated ? <C {...routeProps}/> : <Redirect to="/login" />
-    } 
+// const AuthenicatedRoute = ({component:C,...props}) => {
+//   const {isAuthenticated} = useAuthState()
+//   return (
+//     <Route
+//     {...props}
+//     render={routeProps =>
+//     isAuthenticated ? <C {...routeProps}/> : <Redirect to="/login" />
+//     } 
     
-    />
-  )
+//     />
+//   )
   
-} 
+// } 
 
 const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
     <BrowserRouter>
-    <AuthContextProvider>
       <AuthProvider>
         <SiteHeader />  
         <AuthHeader />    {/* New Header  */}
         <MoviesContextProvider>
             {" "}
+            <MovieProvider>
       <Switch>
-      <Route exact path="/" component={HomePage} />
-      <AuthenicatedRoute exact path="/movies/favorites" component={FavoriteMoviesPage} />
+      <PrivateRoute exact path="/" component={HomePage} />
+      <PrivateRoute exact path="/movies/favorites" component={FavoriteMoviesPage} />
         <Route exact path="/movies/upcomingmovies" component={UpcomingMoviesPage} />
         <Route exact path="/tv/discovertv" component={TvPage} />
         <PrivateRoute exact path="/popular/actors" component={PopularActorsPage} />
-        <Route exact path="/login" component={LoginPage} />
+        {/* <Route exact path="/login" component={LoginPage} /> */}
         <Route exact path="/loginUserName" component={LoginPageUser} />
         <Route exact path="/signUpUserName" component={SignUpPageUser} />
         <Route exact path="/signup" component={SignUpPage} />
@@ -83,9 +84,9 @@ const App = () => {
         <Route path="/actor/:id" component={ActorDetailsPage} />
         <Redirect from="*" to="/" />
       </Switch>
+      </MovieProvider>
       </MoviesContextProvider>
       </AuthProvider>
-      </AuthContextProvider>
     </BrowserRouter>
     <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
