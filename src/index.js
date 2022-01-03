@@ -6,6 +6,7 @@ import PopularActorsPage from './pages/popularActorsPage';
 import TvPage from './pages/tvPage';
 import ActorDetailsPage from './pages/actorDetailsPage'
 import LoginPage from './pages/loginPage';
+import LoginPageUser from './loginPageUser';
 import SignUpPage from './pages/signUpPage';
 import React from "react";
 import ReactDOM from "react-dom";
@@ -18,6 +19,10 @@ import { QueryClientProvider, QueryClient } from "react-query";
 import { ReactQueryDevtools } from 'react-query/devtools';
 import MoviesContextProvider from "./contexts/moviesContext";
 import { AuthContextProvider,useAuthState } from './firebase-config';
+import PrivateRoute from "./privateRoute";
+import AuthHeader from "./authHeader";
+import  AuthProvider  from './contexts/authContext';
+
 
 
 
@@ -55,7 +60,9 @@ const App = () => {
     <QueryClientProvider client={queryClient}>
     <BrowserRouter>
     <AuthContextProvider>
-        <SiteHeader />      {/* New Header  */}
+      <AuthProvider>
+        <SiteHeader />  
+        <AuthHeader />    {/* New Header  */}
         <MoviesContextProvider>
             {" "}
       <Switch>
@@ -63,8 +70,9 @@ const App = () => {
       <AuthenicatedRoute exact path="/movies/favorites" component={FavoriteMoviesPage} />
         <Route exact path="/movies/upcomingmovies" component={UpcomingMoviesPage} />
         <Route exact path="/tv/discovertv" component={TvPage} />
-        <Route exact path="/popular/actors" component={PopularActorsPage} />
+        <PrivateRoute exact path="/popular/actors" component={PopularActorsPage} />
         <Route exact path="/login" component={LoginPage} />
+        <Route exact path="/loginUserName" component={LoginPageUser} />
         <Route exact path="/signup" component={SignUpPage} />
       <Route exact path="/reviews/form" component={AddMovieReviewPage} />
       <Route path="/reviews/:id" component={MovieReviewPage} />   
@@ -74,6 +82,7 @@ const App = () => {
         <Redirect from="*" to="/" />
       </Switch>
       </MoviesContextProvider>
+      </AuthProvider>
       </AuthContextProvider>
     </BrowserRouter>
     <ReactQueryDevtools initialIsOpen={false} />

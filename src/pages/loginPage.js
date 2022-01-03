@@ -5,17 +5,16 @@ import { Link } from "react-router-dom";
 
 
 
+
 const LoginPage = (props) => {
+  
+ 
 
     
     const [loginEmail, setLoginEmail] = useState("");
     const [loginPassword, setLoginPassword] = useState("");
   
     const [user, setUser] = useState({});
-  
-    onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
-    });
   
     
   
@@ -41,6 +40,11 @@ const LoginPage = (props) => {
       await signOut(auth);
     };
   
+    onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+    });
+  
+  
     return (
        
      <div>
@@ -51,16 +55,19 @@ const LoginPage = (props) => {
             placeholder="Email..."
             onChange={(event) => {
               setLoginEmail(event.target.value);
+
             }}
           />
           <input
             placeholder="Password..."
             onChange={(event) => {
               setLoginPassword(event.target.value);
+
             }}
           />
           
           <button aria-label ='Login' onClick={login}> Login</button>
+
        
         </div>
   
@@ -69,6 +76,9 @@ const LoginPage = (props) => {
 
         <Link to={`/signup`}>
         <h4>Register</h4>
+        </Link>
+        <Link to={`/loginUserName`}>
+        <h4>Login in with UserName</h4>
         </Link>
       </div>
    
