@@ -44,7 +44,7 @@ export const getFavouriteMovies = (username)=> {
 }
 export const getMovies = () => {
   return fetch(
-     '/api/movies',{headers: {
+     '/',{headers: {
        'Authorization': window.localStorage.getItem('token')
     }
   }
